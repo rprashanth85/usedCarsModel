@@ -81,7 +81,7 @@ The dataset, sourced from Kaggle, originally contained information on 3 million 
 
 # Modeling
 
-   **Model Selection**
+   1. **Model Selection**
     Created several models to explore various feature combinations:
     Column Transformer: Applied Polynomial Features to numerical and OneHotEncoding to categorical features.
     Sequential Feature Selection: Used Linear Regression to select the most impactful features.
@@ -90,11 +90,11 @@ The dataset, sourced from Kaggle, originally contained information on 3 million 
     Pipeline: Combined the above methods into a pipeline for streamlined modeling.
     GridSearchCV: Tuned parameters for various models and selected the top 5 features.
 
-   **Performance Metrics**
+   2. **Performance Metrics**
     Calculated Mean Squared Errors (MSE) for all models to assess performance.
     Best performance was achieved with Ridge Regression (alpha: 0.1) and Polynomial Features (degree: 2).
 
-   **Feature Importance**
+   3. **Feature Importance**
     The most important features were determined to be year, odometer, cylinders, and fuel type.
 
 
