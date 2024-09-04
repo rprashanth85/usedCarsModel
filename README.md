@@ -92,7 +92,7 @@
   Based on the training and test MSEs from different models it is very clear that best model is found with    Ridge parameter alpha: 0.1, applied Polynomial Feature degree: 2 only on numerical columns.
   Further from the Permuation Importance calculated based on the above models shows that 4 features     would contribute to the model (year, odometer, cylinders, fuel).
 
-# Next Steps
+# Conclusion and Next Steps
   Initially for this analysis I dropped column size. May be including size of the car could result in different MSEs and feature selection. We should try this 
 
   Mapping the coefficents from the best model to the features shows which feature contributes positively  and which features contributes negatively.
