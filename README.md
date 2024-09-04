@@ -82,29 +82,28 @@ The dataset, sourced from Kaggle, originally contained information on 3 million 
 # Modeling
 
    **Model Selection**
-
     Created several models to explore various feature combinations:
-	**Column Transformer:** Applied Polynomial Features to numerical and OneHotEncoding to categorical features.
-	**Sequential Feature Selection:** Used Linear Regression to select the most impactful features.
-	**Recursive Feature Elimination (RFE):** Applied Lasso Regression to refine feature selection.
-	**Ridge Regression:** Implemented Ridge Regression in a TransformedTargetRegressor.
-	**Pipeline:** Combined the above methods into a pipeline for streamlined modeling.
-	**GridSearchCV:** Tuned parameters for various models and selected the top 5 features.
+    Column Transformer: Applied Polynomial Features to numerical and OneHotEncoding to categorical features.
+    Sequential Feature Selection: Used Linear Regression to select the most impactful features.
+    Recursive Feature Elimination (RFE): Applied Lasso Regression to refine feature selection.
+    Ridge Regression: Implemented Ridge Regression in a TransformedTargetRegressor.
+    Pipeline: Combined the above methods into a pipeline for streamlined modeling.
+    GridSearchCV: Tuned parameters for various models and selected the top 5 features.
 
    **Performance Metrics**
-	Calculated Mean Squared Errors (MSE) for all models to assess performance.
-	Best performance was achieved with Ridge Regression (alpha: 0.1) and Polynomial Features (degree: 2).
+    Calculated Mean Squared Errors (MSE) for all models to assess performance.
+    Best performance was achieved with Ridge Regression (alpha: 0.1) and Polynomial Features (degree: 2).
 
    **Feature Importance**
-	The most important features were determined to be year, odometer, cylinders, and fuel type.
+    The most important features were determined to be year, odometer, cylinders, and fuel type.
 
 
 # Evaluation
-	The best-performing model was Ridge Regression with alpha: 0.1 and Polynomial Features of degree 2 for numerical columns.
-	Feature importance analysis revealed the most influential variables were year, odometer, cylinders, and fuel.
+    The best-performing model was Ridge Regression with alpha: 0.1 and Polynomial Features of degree 2 for numerical columns.
+    Feature importance analysis revealed the most influential variables were year, odometer, cylinders, and fuel.
 
 
 # Conclusion and Next Steps
-	Future analysis could benefit from including the ‘size’ column, which was initially dropped, to see if it impacts model performance.
-	Further experimentation with cross-validation and Huber loss could improve the robustness of the model.
-	Exploring additional error metrics such as Mean Absolute Error and Root Mean Squared Error will provide deeper insight into model accuracy.
+    Future analysis could benefit from including the ‘size’ column, which was initially dropped, to see if it impacts model performance.
+    Further experimentation with cross-validation and Huber loss could improve the robustness of the model.
+    Exploring additional error metrics such as Mean Absolute Error and Root Mean Squared Error will provide deeper insight into model accuracy.
