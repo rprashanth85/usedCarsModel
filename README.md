@@ -1,15 +1,19 @@
 # usedCarsModel
 
+
 # Link 
   https://github.com/rprashanth85/usedCarsModel.git
+
 
 # Overview
 
 The goal of this analysis is to identify the key factors that influence the pricing of used cars. By understanding these factors, we can provide actionable recommendations to used car dealerships, allowing them to optimize their inventory and pricing strategies based on consumer preferences. This report will guide dealerships in fine-tuning their stock to better meet market demands.
 
+
 # Data
 
 The dataset, sourced from Kaggle, originally contained information on 3 million used cars. For efficiency and processing speed, a subset of 426,000 cars was used for the analysis.
+
 
 # Data Investigation
 
@@ -27,6 +31,7 @@ The dataset, sourced from Kaggle, originally contained information on 3 million 
 
 5. Correlation Analysis
     Used a heatmap to identify correlations between numerical variables, aiming to avoid redundancy and highlight significant relationships.
+
 
 # Actions on Data Investigation
 
@@ -54,57 +59,52 @@ The dataset, sourced from Kaggle, originally contained information on 3 million 
   4.  **Feature Importance**
       Conducted Permutation Importance analysis to determine the most significant features affecting price.
 
+
 # Chart Analysis and Recommendations
 
-1. **Drive, Transmission, and Cylinders**
+  1. **Drive, Transmission, and Cylinders**
+	Observation: Cars with automatic transmission and 4WD dominate the market, especially those with 6-8 cylinders.
+	Recommendation: Prioritize inventory with automatic transmission, 4WD, and 6-8 cylinder vehicles to meet demand.
 
-	•	Observation: Cars with automatic transmission and 4WD dominate the market, especially those with 6-8 cylinders.
-	•	Recommendation: Prioritize inventory with automatic transmission, 4WD, and 6-8 cylinder vehicles to meet demand.
+  2. **State and Region**
+	Observation: States like California and Florida have higher car listings, indicating active markets.
+	Recommendation: Focus marketing and inventory investments in high-activity states like CA and FL.
 
-2. **State and Region**
+  3. **Condition, Fuel Type, and Transmission**
+	Observation: Gasoline-fueled cars in good or excellent condition with automatic transmissions are prevalent.
+	Recommendation: Maintain a majority of well-maintained, gasoline-fueled cars. Expand the selection of hybrid and electric vehicles to capture emerging trends.
 
-	•	Observation: States like California and Florida have higher car listings, indicating active markets.
-	•	Recommendation: Focus marketing and inventory investments in high-activity states like CA and FL.
+  4. **Manufacturer**
+	Observation: Luxury brands (Ferrari, Tesla, etc.) have higher price points, while mainstream brands offer affordable options.
+	Recommendation: Balance inventory between luxury and affordable cars to cater to a broad customer base.
 
-3. **Condition, Fuel Type, and Transmission**
-
-	•	Observation: Gasoline-fueled cars in good or excellent condition with automatic transmissions are prevalent.
-	•	Recommendation: Maintain a majority of well-maintained, gasoline-fueled cars. Expand the selection of hybrid and electric vehicles to capture emerging trends.
-
-4. **Manufacturer**
-
-	•	Observation: Luxury brands (Ferrari, Tesla, etc.) have higher price points, while mainstream brands offer affordable options.
-	•	Recommendation: Balance inventory between luxury and affordable cars to cater to a broad customer base.
 
 # Modeling
 
-  ## Model Selection
+   **Model Selection**
 
     Created several models to explore various feature combinations:
+	**Column Transformer:** Applied Polynomial Features to numerical and OneHotEncoding to categorical features.
+	**Sequential Feature Selection:** Used Linear Regression to select the most impactful features.
+	**Recursive Feature Elimination (RFE):** Applied Lasso Regression to refine feature selection.
+	**Ridge Regression:** Implemented Ridge Regression in a TransformedTargetRegressor.
+	**Pipeline:** Combined the above methods into a pipeline for streamlined modeling.
+	**GridSearchCV:** Tuned parameters for various models and selected the top 5 features.
 
-	1.	Column Transformer: Applied Polynomial Features to numerical columns and OneHotEncoding to categorical features.
-	2.	Sequential Feature Selection: Used Linear Regression to select the most impactful features.
-	3.	Recursive Feature Elimination (RFE): Applied Lasso Regression to refine feature selection.
-	4.	Ridge Regression: Implemented Ridge Regression in a TransformedTargetRegressor.
-	5.	Pipeline: Combined the above methods into a pipeline for streamlined modeling.
-	6.	GridSearchCV: Tuned parameters for various models and selected the top 5 features.
+   **Performance Metrics**
+	Calculated Mean Squared Errors (MSE) for all models to assess performance.
+	Best performance was achieved with Ridge Regression (alpha: 0.1) and Polynomial Features (degree: 2).
 
-  ## Performance Metrics
+   **Feature Importance**
+	The most important features were determined to be year, odometer, cylinders, and fuel type.
 
-	•	Calculated Mean Squared Errors (MSE) for all models to assess performance.
-	•	Best performance was achieved with Ridge Regression (alpha: 0.1) and Polynomial Features (degree: 2).
-
-  ## Feature Importance
-
-	•	The most important features were determined to be year, odometer, cylinders, and fuel type.
 
 # Evaluation
+	The best-performing model was Ridge Regression with alpha: 0.1 and Polynomial Features of degree 2 for numerical columns.
+	Feature importance analysis revealed the most influential variables were year, odometer, cylinders, and fuel.
 
-	•	The best-performing model was Ridge Regression with alpha: 0.1 and Polynomial Features of degree 2 for numerical columns.
-	•	Feature importance analysis revealed the most influential variables were year, odometer, cylinders, and fuel.
 
 # Conclusion and Next Steps
-
-	•	Future analysis could benefit from including the ‘size’ column, which was initially dropped, to see if it impacts model performance.
-	•	Further experimentation with cross-validation and Huber loss could improve the robustness of the model.
-	•	Exploring additional error metrics such as Mean Absolute Error and Root Mean Squared Error will provide deeper insight into model accuracy.
+	Future analysis could benefit from including the ‘size’ column, which was initially dropped, to see if it impacts model performance.
+	Further experimentation with cross-validation and Huber loss could improve the robustness of the model.
+	Exploring additional error metrics such as Mean Absolute Error and Root Mean Squared Error will provide deeper insight into model accuracy.
